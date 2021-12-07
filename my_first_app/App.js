@@ -8,15 +8,17 @@
 
 import React,{comments, Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-
+import Header from './header';
 
 //class 에서만 state 사용가능
 class App extends Component {
 
   //변수에서 값을 가져다 사용하는것이 효율성이 매우 좋음
   state = {
-    sampleText:'Hello World!!!!',
-    sampleBoolean: false
+    headerText:'This is header !!!!',
+    sampleBoolean: false,
+    sampleNum:1,
+    appName: 'My first Name'
   }
 
   inputText = () => (
@@ -40,24 +42,21 @@ class App extends Component {
     }
   }
 
+  onAdd = () => {
+    //state 값은 쉽게 변경 할수 없음
+    this.setState(prevState =>{
+      return{
+        sampleNum:prevState.sampleNum + 1
+      }
+    })
+  }
+
   render() {
     return (
-      <View style={style.backgroung}>
-        <Text onPress={this.changeState}>
-          {this.state.sampleText}
-        </Text>
-      </View>
+      <Header name={this.state.appName}/>
     )
   }
 }
 
-const style = StyleSheet.create({
-  backgroung:{
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems:'center',
-    justifyContent:'center'
-  }
-})
 
 export default App;
