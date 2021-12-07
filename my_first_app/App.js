@@ -15,13 +15,37 @@ class App extends Component {
 
   //변수에서 값을 가져다 사용하는것이 효율성이 매우 좋음
   state = {
-    sampleText:'Hello World'
+    sampleText:'Hello World!!!!',
+    sampleBoolean: false
+  }
+
+  inputText = () => (
+    this.state.sampleBoolean ? 
+    <Text>sampleBoolean is true</Text>
+    :
+    <Text>sampleBoolean is false</Text>
+  )
+
+  changeState = () => {
+    if(!this.state.sampleBoolean){
+      this.setState({
+        sampleText: 'SampleBoolean is true',
+        sampleBoolean: true
+      })
+    } else {
+      this.setState({
+        sampleText: 'SampleBoolean is false',
+        sampleBoolean: false
+      })
+    }
   }
 
   render() {
     return (
       <View style={style.backgroung}>
-        <Text>{this.state.sampleText}</Text>
+        <Text onPress={this.changeState}>
+          {this.state.sampleText}
+        </Text>
       </View>
     )
   }
