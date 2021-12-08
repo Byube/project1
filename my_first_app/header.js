@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity,TouchableWithoutFeedback } fro
 
 const Header = (props) => (
     <TouchableOpacity
-        style={style.headers}
+        style={styles.header}
         // onPress={()=>alert('hello jeffkim')}
         onLongPress={()=>alert('hello jeffkim')}
     >
@@ -15,14 +15,13 @@ const Header = (props) => (
     </TouchableOpacity>
 )
 
-const style = StyleSheet.create({
-    headers: {
+const styles = StyleSheet.create({
+    header: {
         backgroundColor:'pink',
         alignItems:'center',
-        justifyContent:'center',
         padding:5,
         width:'100%'
     }
-});
+})
 
 export default Header;
